@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
+using System.IO.Pipes;
 using System.Linq;
 using Accord.MachineLearning.DecisionTrees;
 using Accord.MachineLearning.DecisionTrees.Learning;
@@ -71,11 +72,14 @@ namespace GroceryConsole.WeatherScorer
         {
             var score = itemToCheck.WeatherScore;
             var newWeather = Algorithms.WeatherFromScore(score);
-            string answer = Codebook.Translate("Projection",
-                            Tree.Decide(Codebook.Translate(newWeather.Weather.Icon,
-                            newWeather.Temperature.Value, newWeather.Humidity.Value,
-                            newWeather.Wind.Speed.Value, newWeather.Pressure.Value)));
 
+            var translation = Codebook.Translate(newWeather.Weather.Icon,
+                newWeather.Temperature.Value, newWeather.Humidity.Value,
+                newWeather.Wind.Speed.Value, newWeather.Pressure.Value);
+
+            var decision = Tree.Decide(translation);
+
+            var answer = Codebook.Translate("Projection", decision) ?? "false";
             return answer;
         }
     }

@@ -3,7 +3,7 @@ using System.Data;
 using Accord.MachineLearning.DecisionTrees;
 using GroceryConsole.Weather.Weather;
 
-namespace GroceryConsole.Weathercoder
+namespace GroceryConsole.WeatherCoder
 {
     public static class Coder
     {
