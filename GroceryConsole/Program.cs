@@ -6,6 +6,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
+using Accord.IO;
 using Accord.Math.Comparers;
 using GroceryConsole.Weather;
 using GroceryConsole.Weather.Weather;
@@ -55,7 +56,7 @@ namespace GroceryConsole
                 var training = reader.GetItemInfo(@"C: \Users\Shane\Desktop\training_data.csv", item);
 
                 decTree.TrainAlgorithm(training);
-             
+                           
                 var answer = decTree.CheckItemProjection(itemWeather);
 
                 Console.WriteLine("Will Sell?: " + answer + "\n");

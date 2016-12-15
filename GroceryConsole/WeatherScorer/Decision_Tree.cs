@@ -32,7 +32,7 @@ namespace GroceryConsole.WeatherScorer
 
             Variables = new List<DecisionVariable>
             {
-                new DecisionVariable("Weather", 3), // 3 possible values (Sunny, overcast, rain, snow, )
+                new DecisionVariable("Weather", 4), // 4 possible values (Sunny, overcast, rain, snow, )
                 new DecisionVariable("Temperature", 5),//possible values (Extreme Hot, Hot, cool, freezing, Below 0)  
                 new DecisionVariable("Humidity", 4), // 2 possible values (90-100, 60-80, 30-50, <30)    
                 new DecisionVariable("Wind", 3), // 3 possible values (Weak, strong, none) 
